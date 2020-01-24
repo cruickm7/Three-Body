@@ -22,9 +22,9 @@ public class Three_Body {
         cvx = 0;
         cvy = 0;
         //initgraph(&gd, &gm, "");
-        System.out.println("\naX\taY\tbX\tbY\tcX\tcY");
+        System.out.println("\naX\taY\tbX\tbY\tcX\tcY\tz");
         for (int i = 0; i < 500; ++i) {
-            System.out.println(apx + "\t" + apx + "\t" + bpx + "\t" + bpy + "\t" + cpx + "\t" + cpy);
+            System.out.println(apx + "\t" + apx + "\t" + bpx + "\t" + bpy + "\t" + cpx + "\t" + cpy + "\t" + i);
             //printf("\n%f", cpy);
             artb = Math.atan((bpy - apy) / (bpx - apx)) * 57.2957795131;
             arb = Math.pow((bpy - apy), 2) + Math.pow((bpx - apx), 2);
@@ -51,7 +51,7 @@ public class Three_Body {
             avy = aay * t;
 
             apx += avx * t;
-            apy += avy * t;
+            apy -= avy * t;
 
 
             brta = Math.atan((apy - bpy) / (apx - bpx)) * 57.2957795131;
@@ -79,7 +79,7 @@ public class Three_Body {
             bvy = bay * t;
 
             bpx += bvx * t;
-            bpy += bvy * t;
+            bpy -= bvy * t;
 
 
             crta = Math.atan((apy - cpy) / (apx - cpx)) * 57.2957795131;
@@ -107,7 +107,7 @@ public class Three_Body {
             cvy = cay * t;
 
             cpx += cvx * t;
-            cpy += cvy * t;
+            cpy -= cvy * t;
         }
     }
 }
